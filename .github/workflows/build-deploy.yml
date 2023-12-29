@@ -78,5 +78,5 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: ${{ secrets.SSH_PORT }}
           script: |
-          pm2 restart my-picsum
-          systemctl reload nginx
+            pm2 restart my-picsum
+            systemctl reload nginx
