@@ -10,7 +10,7 @@ env:
 
 jobs:
   test-build-deploy:
-
+    
     runs-on: ubuntu-latest
 
     strategy:
@@ -20,9 +20,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-
       - uses: GuillaumeFalourd/setup-rsync@v1.1
-
+      
       - name: Install SSH Key
         uses: shimataro/ssh-key-action@v2
         with:
@@ -32,8 +31,8 @@ jobs:
       - name: Adding Known Hosts
         run: ssh-keyscan -p ${{ secrets.SSH_PORT }} -H ${{ secrets.SSH_HOST }}  >> ~/.ssh/known_hosts
 
-    - name: Create .env file
-      run: |
+      - name: Create .env file
+        run: |
         echo "PORT=${{ secrets.API_PORT }}" > ./.env
 
       - name: Test SSH connection
