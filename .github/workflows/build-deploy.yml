@@ -55,6 +55,8 @@ jobs:
           rsync --progress -avz -e "ssh -v -i ~/.ssh/id_rsa" \
           ./index.js \
           ./.env \
+          ./package.json \
+          ./package-lock.json \
           ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:${{ secrets.HOME }}/
 
       - name: Install dependencies
